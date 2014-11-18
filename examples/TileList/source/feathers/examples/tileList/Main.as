@@ -175,9 +175,13 @@ package feathers.examples.tileList
 		}
 
 		protected function list_scrollHandler(event:Event):void
-		{
-			this._pageIndicator.pageCount = this._list.horizontalPageCount;
-			this._pageIndicator.selectedIndex = this._list.horizontalPageIndex;
+		{	
+			//debug to fast scroll to left
+			if(!this._list.isScrolling) {
+				//debug to show number of indicator 
+				this._pageIndicator.pageCount = this._list.horizontalPageCount-1;
+				this._pageIndicator.selectedIndex = this._list.horizontalPageIndex;
+			}
 		}
 
 		protected function pageIndicator_changeHandler(event:Event):void
